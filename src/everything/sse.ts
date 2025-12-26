@@ -1,10 +1,12 @@
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 import { createServer } from "./everything.js";
+import helmet from "helmet";
 
 console.error('Starting SSE server...');
 
 const app = express();
+app.use(helmet());
 
 const { server, cleanup } = createServer();
 
