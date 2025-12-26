@@ -24,6 +24,7 @@ if (args.length === 0) {
 
 // Normalize all paths consistently
 function normalizePath(p: string): string {
+  if (p.includes('..')) throw new Error('Invalid path');
   return path.normalize(p);
 }
 
